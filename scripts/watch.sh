@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-watch "sh scripts/build.sh" js/source
+watch "sh scripts/build.sh" js/src
