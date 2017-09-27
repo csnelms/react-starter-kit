@@ -7,7 +7,7 @@
   "license": "PRIVATE",
   "main": "default.cfm",
   "scripts": {
-    "start": "npm start"
+    "start": "sh scripts/watch.sh"
   },
   "dependencies": {
     "axios": "^0.16.2",
