@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, NavLink as Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import Header from './components/Header.js';

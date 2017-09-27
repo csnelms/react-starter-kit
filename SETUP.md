@@ -1,6 +1,11 @@
 # JASPER REACT SETUP
 
-*Note: you will need to install node and npm first*
+*Note: you will need to install node and npm first, or update current version to the latest*
+* $ sudo npm cache clean -f
+* $ sudo npm install -g n
+* $ sudo n stable
+* $ npm install npm -g npm
+
 *Note: you should also have file sync set up on your sandbox*
 
 ### Clone the starter app
