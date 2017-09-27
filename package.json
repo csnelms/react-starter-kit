@@ -1,13 +1,14 @@
 {
-  "name": "devtools",
-  "version": "1.0.0",
-  "description": "Dev Tools",
+  "name": "myApp",
+  "version": "0.1.0",
+  "description": "My app description",
+  "private": true,
+  "author": "Carey Nelms",
+  "license": "PRIVATE",
   "main": "default.cfm",
   "scripts": {
-    "test": "test"
+    "start": "npm start"
   },
-  "author": "Carey Nelms",
-  "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
     "babel-preset-es2015": "^6.24.1",
@@ -19,5 +20,5 @@
     "uglify": "^0.1.5",
     "watch": "^1.0.2"
   },
-  "repository": "http://www....todo"
+  "repository": "https://github.com/csnelms/react-starter-kit.git"
 }
