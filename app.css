@@ -1,0 +1,22 @@
+#app h1,
+#app h2,
+#app h3,
+#app h4 {
+    border-bottom: none;
+}
+
+#app .center {
+    text-align: center;
+}
+
+#app .pull-left {
+    float: left;
+}
+
+#app .pull-right {
+    float: right;
+}
+
+#app input {
+    margin-bottom: 0px;
+}
