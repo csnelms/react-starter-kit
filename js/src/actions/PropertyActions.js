@@ -2,9 +2,15 @@ import axios from 'axios';
 
 const baseURL = 'https://cfdev1.npe.clearcapital.net/sandbox_csn2/ccfile/root/sites/intranet/';
 
+function get(propertyId) {
+  return propertyId;
+}
+
 export function getQueue (propertyId) {
   //TODO: figure out the regerator runtime error... babel-polyfill and es2015
-  return propertyId;
+  return async () => {
+    return await get(propertyId);
+  }
   // return async dispatch => {
   //   try {
   //     // TODO: connect to API and remove mock data
