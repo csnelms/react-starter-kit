@@ -1,5 +1,6 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import {getQueue} from '../../actions/PropertyActions'
 
 const baseURL = 'https://cfdev1.npe.clearcapital.net/sandbox_csn2/ccfile/root/sites/intranet/';
 
@@ -7,7 +8,7 @@ class Tab2Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            transactionId: 22311278
+            transactionId: 22817182
         };
 
         this.getQueue = this.getQueue.bind(this);
@@ -44,20 +45,9 @@ class Tab2Main extends React.Component {
     }
 
     getQueue(se) {
-        se.preventDefault();
-        const config = {
-            params: {
-                method: 'getQueuedOffices',
-                transactionId: this.state.transactionId
-            }
-        }
-        axios.get(baseURL+'remote/ajax/solicitations/solicitationsQueue.cfc', config)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+      se.preventDefault();
+      const property = getQueue(this.state.transactionId);
+      console.log(property);
     }
 
     render() {
