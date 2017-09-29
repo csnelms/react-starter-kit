@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {GET_PROPERTY} from '../constants/actions';
 
 const baseURL = 'https://cfdev1.npe.clearcapital.net/sandbox_csn2/ccfile/root/sites/intranet/';
 
@@ -6,11 +7,16 @@ function get(propertyId) {
   return propertyId;
 }
 
-export function getQueue (propertyId) {
-  //TODO: figure out the regerator runtime error... babel-polyfill and es2015
-  return async () => {
-    return await get(propertyId);
-  }
+export function getProperty (propertyId) {
+  const property = { propertyId: 4253354, address: '1030 backer way' };
+  return { type: GET_PROPERTY, payload: property };
+  // dispatch({
+  //   type: GET_PROPERTY,
+  //   payload: property
+  // });
+  // return async () => {
+  //   return await get(propertyId);
+  // }
   // return async dispatch => {
   //   try {
   //     // TODO: connect to API and remove mock data
@@ -64,13 +70,13 @@ export function getQueue (propertyId) {
   //     };
   //     console.log(property);
   //     // dispatch({
-  //     //   type: SET_PROPERTY,
+  //     //   type: GET_PROPERTY,
   //     //   payload: property
   //     // })
   //   } catch (err) {
   //     // dispatch(addNotification({
   //     //   title: 'Error',
-  //     //   message: SET_PROPERTY,
+  //     //   message: GET_PROPERTY,
   //     //   status: 'error',
   //     //   position: 'br',
   //     //   dismissable: true,
