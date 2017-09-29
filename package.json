@@ -7,9 +7,10 @@
   "license": "PRIVATE",
   "main": "default.cfm",
   "scripts": {
-    "start": "babel-node tools/srcServer.js",
+    "start": "npm run open:src | npm run open:jasper:dev | npm run start:watch",
     "open:src": "babel-node tools/srcServer.js",
-    "start:jasper": "sh scripts/watch.sh"
+    "open:jasper:dev": "open https://cfdev1.npe.clearcapital.net/sandbox_csn2/ccfile/root/sites/intranet/react/apps/react-starter-kit",
+    "start:watch": "sh scripts/watch.sh"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -27,6 +28,11 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "express": "^4.15.5",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^3.1.0",
     "open": "0.0.5",
     "webpack": "^3.6.0",
     "webpack-dev-middleware": "^1.12.0",

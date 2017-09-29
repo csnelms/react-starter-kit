@@ -5,7 +5,7 @@
 	request.framework.addCSS("#request.framework.getBaseUrl()#react/apps/react-starter-kit/app.css?v=#cachebuster#");
 </cfscript>
 
-<!---TODO: change network calls to async/await--->
+<!---TODO: install axios locally--->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <cfoutput>

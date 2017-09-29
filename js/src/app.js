@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
+// import createBrowserHistory from 'history/createBrowserHistory';
 
 import Header from './components/Header.js';
 import Tabs from './components/Tabs.js';
 import Tab1Main from './components/Tab1/Tab1Main.js';
 import Tab2Main from './components/Tab2/Tab2Main.js';
 
-const history = createBrowserHistory();
+const history = {}; //createBrowserHistory();
 
 ReactDOM.render(
     <Router basename="/" hashType="slash" history={history}>

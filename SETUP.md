@@ -1,6 +1,8 @@
 # JASPER REACT SETUP
 
 *Note: you will need to install node and npm first, or update current version to the latest*
+
+### Update npm and node to latest versions
 * $ sudo npm cache clean -f
 * $ sudo npm install -g n
 * $ sudo n stable
@@ -27,13 +29,9 @@ Now you are ready to install your node_modules defined in the dependencies secti
 * $ npm install
 
 ### Start your app
-* $ npm start TODO: fix grunt error, until then kick it off manually
-* $ sh scripts/watch.sh
+* $ npm start
 
-*Note: this will begin watching for changes and automatically upload the bundled js to filer*
-
-### Launch app
-* https://cfdev3.npe.clearcapital.net/sandbox_csn2/ccfile/root/sites/intranet/react/apps/react-starter-kit
+*Note: this will launch a local version of the app and a dev instance, and also begin watching for changes*
 
 ### TODO
 * Checkout Jordan's starter kit
