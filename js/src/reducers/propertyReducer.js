@@ -1,4 +1,4 @@
-import {GET_PROPERTY} from '../constants/actions';
+import {GET_PROPERTY} from '../constants/actionTypes';
 
 const initialState = {};
 

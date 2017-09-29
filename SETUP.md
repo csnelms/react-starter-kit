@@ -34,11 +34,15 @@ Now you are ready to install your node_modules defined in the dependencies secti
 *Note: this will launch a local version of the app and a dev instance, and also begin watching for changes*
 
 ### TODO
+* install linting
+* get hot loading working
 * Checkout Jordan's starter kit
-* Install redux and connect
-* Async/await calls in action component - read up on this
 * Figure out how to run watch automatically from npm start and launch in browser
 * Figure out how to use mock data and develop locally
+
+### Done
+* Install redux and connect
+* Async/await calls in action component - read up on this
 
 
 
