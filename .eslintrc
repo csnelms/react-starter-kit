@@ -28,7 +28,7 @@
     "React": true
   },
   "rules": {
-    "react/jsx-space-before-closing": 0,
+    "react/jsx-space-before-closing": 1,
     "react/jsx-tag-spacing": 2,
     "always-multiline": 0
   }
