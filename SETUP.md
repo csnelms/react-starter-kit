@@ -34,6 +34,7 @@ Now you are ready to install your node_modules defined in the dependencies secti
 *Note: this will launch a local version of the app and a dev instance, and also begin watching for changes*
 
 ### TODO
+* move scripts/build.sh scripts into package scripts section!!!
 * update package scripts to watch and build the remote file the same way you watch for linting
 * purge and re-install, making sure you didn't miss a dependency or two
 * figure out if i need constructor, move proptypes into class? defaultProps, etc. the way ccp does it
