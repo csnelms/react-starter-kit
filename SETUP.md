@@ -34,6 +34,9 @@ Now you are ready to install your node_modules defined in the dependencies secti
 *Note: this will launch a local version of the app and a dev instance, and also begin watching for changes*
 
 ### TODO
+* read up on webpack, redux
+* figure out why history isn't working, also the hashrouter console warning
+* webpack resolve for importing from root
 * install linting
 * get hot loading working
 * Checkout Jordan's starter kit

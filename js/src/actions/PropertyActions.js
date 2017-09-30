@@ -1,8 +1,8 @@
-import axios from 'axios';
-import {GET_PROPERTY} from '../constants/actionTypes';
-import {BASE_URL} from '../constants/global';
+import axios from 'axios'
+import { GET_PROPERTY } from '../constants/actionTypes'
+import { BASE_URL } from '../constants/global'
 
-function getMockProperty(propertyId) {
+function getMockProperty (propertyId) {
   return {
     id: propertyId,
     servicerId: 12345,
@@ -42,7 +42,7 @@ function getMockProperty(propertyId) {
       yearBuilt: 2004,
       propertyType: 'SFR'
     }
-  };
+  }
 }
 
 export function getProperty (propertyId) {
@@ -56,22 +56,21 @@ export function getProperty (propertyId) {
       // const property = await appApi.get(`property/${propertyId}`)
       const config = {
         params: {
-            method: 'getQueuedOffices', //TODO: change to a getProperty method
-            transactionId: propertyId
+          method: 'getQueuedOffices', // TODO: change to a getProperty method
+          transactionId: propertyId
         }
-      };
-      const response = await axios.get(BASE_URL+'remote/ajax/solicitations/solicitationsQueue.cfc', config);
+      }
+      const response = await axios.get(BASE_URL + 'remote/ajax/solicitations/solicitationsQueue.cfc', config)
       if (response.status === 200) {
-        dispatch({ type: GET_PROPERTY, payload: response.data });
+        dispatch({ type: GET_PROPERTY, payload: response.data })
       } else {
         // TODO: handle invalid response
       }
-
     } catch (e) {
       // when developing locally, we will always enter this block due to 401 unauthorized response (Access-Control-Allow-Origin header)
-      console.log(e);
-      const property = await getMockProperty(propertyId);
-      dispatch({ type: GET_PROPERTY, payload: property });
+      console.log(e)
+      const property = await getMockProperty(propertyId)
+      dispatch({ type: GET_PROPERTY, payload: property })
     }
   }
 }
