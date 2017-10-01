@@ -8,7 +8,7 @@
   "main": "default.cfm",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel start:local start:remote lint:watch",
+    "start": "npm-run-all --parallel start:remote start:local lint:watch",
     "start:local": "babel-node tools/srcServer.js",
     "start:remote": "npm-run-all --parallel build build:watch open:jasper:dev",
     "open:jasper:dev": "open https://cfdev1.npe.clearcapital.net/sandbox_csn2/ccfile/root/sites/intranet/react/apps/react-starter-kit",
