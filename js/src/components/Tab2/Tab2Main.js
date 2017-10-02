@@ -23,29 +23,11 @@ class Tab2Main extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
-  componentWillUpdate (nextProps, nextState) {
-    // console.log('componentWillUpdate', arguments)
-  }
-
-  componentDidUpdate (oldProps, oldState) {
-    // console.log('componentDidUpdate', arguments)
-  }
-
-  componentWillMount () {
-    // console.log('componentWillMount', arguments)
-
-  }
-
   componentDidMount () {
-    this.props.getProperty(this.state.transactionId)
-  }
-
-  componentWillUnmount () {
-    // console.log('componentWillUnmount', arguments)
+    // this.props.getProperty(this.state.transactionId)
   }
 
   handleInputChange (se) {
-    // console.log(se.target)
     const value = se.target.type === 'checkbox' ? se.target.checked : se.target.value
     this.setState({
       [se.target.name]: [value]
@@ -53,7 +35,6 @@ class Tab2Main extends React.Component {
   }
 
   getProperty (se) {
-    // se.preventDefault()
     this.props.getProperty(this.state.transactionId)
   }
 

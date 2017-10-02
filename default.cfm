@@ -6,7 +6,7 @@
 </cfscript>
 
 <!---TODO: install axios locally--->
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!---<script src="https://unpkg.com/axios/dist/axios.min.js"></script>--->
 
 <cfoutput>
 	<div id="app" class="bb_v1"></div>

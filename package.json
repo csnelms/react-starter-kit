@@ -16,7 +16,7 @@
     "build:watch": "sh scripts/watch.sh",
     "lint": "node_modules/.bin/esw webpack.config.* js/src tools",
     "lint:watch": "npm run lint -- --watch",
-    "purge": "rm -rf node_moodules; npm install"
+    "purge": "rm -rf node_modules; npm install"
   },
   "dependencies": {
     "axios": "0.16.2",
