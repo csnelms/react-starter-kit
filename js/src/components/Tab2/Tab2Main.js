@@ -37,7 +37,7 @@ class Tab2Main extends React.Component {
   }
 
   componentDidMount () {
-
+    this.props.getProperty(this.state.transactionId)
   }
 
   componentWillUnmount () {
@@ -45,7 +45,7 @@ class Tab2Main extends React.Component {
   }
 
   handleInputChange (se) {
-    console.log(se.target)
+    // console.log(se.target)
     const value = se.target.type === 'checkbox' ? se.target.checked : se.target.value
     this.setState({
       [se.target.name]: [value]
@@ -58,7 +58,7 @@ class Tab2Main extends React.Component {
   }
 
   render () {
-    console.log(this.props.property)
+    console.log('render', this.props.property)
     return (
       <div>
         <form onSubmit={this.getProperty}>
@@ -71,7 +71,15 @@ class Tab2Main extends React.Component {
 }
 
 Tab2Main.propTypes = {
-  property: PropTypes.object.isRequired,
+  property: PropTypes.shape({
+    transactionId: PropTypes.number,
+    address: PropTypes.shape({
+      street: PropTypes.string,
+      city: PropTypes.string,
+      state: PropTypes.string,
+      zip: PropTypes.string
+    })
+  }),
   getProperty: PropTypes.func.isRequired
 }
 

@@ -1,7 +1,6 @@
-import axios from 'axios'
 import { GET_PROPERTY } from '../constants/actionTypes'
-import { BASE_URL } from '../constants/global'
 import Property from '../model/Property'
+import { get } from '../services/Api'
 
 function getMockProperty (transactionId) {
   return {
@@ -30,8 +29,7 @@ export function getProperty (transactionId) {
           transactionId: transactionId
         }
       }
-      const response = await axios.get(BASE_URL + 'remote/ajax/transaction/transaction.cfc', config)
-      // console.log(response)
+      const response = await get(config)
       const mappedData = {
         transactionId: response.data.TRANSACTIONID,
         address: {

@@ -32,34 +32,3 @@ Now you are ready to install your node_modules defined in the dependencies secti
 * $ npm start
 
 *Note: this will launch a local version of the app and a dev instance, and also begin watching for changes*
-
-### TODO
-* figure out how to push file automatically from script
-* fix styling on local page index.html... pull in bb_v1
-* move scripts/build.sh scripts into package scripts section!!!
-* update package scripts to watch and build the remote file the same way you watch for linting
-* purge and re-install, making sure you didn't miss a dependency or two
-* figure out if i need constructor, move proptypes into class? defaultProps, etc. the way ccp does it
-* continue reading your react design patterns book, it's very good
-* figure out how to watch for changes and lint... go back to that pluralsight tutorial... hot loading, watch
-* create property class, call a getProp method instead of queue, move axios call into api
-* BUG: figure out why history isn't working, also the hashrouter console warning
-* read up on webpack, redux
-* figure out how to use mock data and develop locally
-* rename repo (bp-react) and move to cc bitbucket for bp team
-
-### Done
-* webpack resolve for importing from root
-* install linting
-* install redux and connect
-* async/await calls in action component - read up on this
-
-### Demo
-* how to clone and install
-* npm start will launch local AND remote versions of the app in separate browser windows
-* demonstrate linting
-
-
-
-
-
