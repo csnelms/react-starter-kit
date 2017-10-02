@@ -4,7 +4,7 @@ export default class Property {
   constructor (property) {
     this.transactionId = property.transactionId
     this.address = new Address(property.address) // property.address
-    console.log('Property model', this.address)
+    // console.log('Property model', this.address)
   }
 
   // TODO: figure out why your setter is removing the property you are trying to create
