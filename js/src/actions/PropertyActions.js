@@ -9,17 +9,17 @@ export function getProperty (transactionId) {
 
   // or an async/await function
   return async dispatch => {
-    try {
-      const config = {
-        url: `${BASE_URL}remote/ajax/transaction/transaction.cfc`,
-        method: 'GET',
-        params: {
-          method: 'getTxnData',
-          transactionId: transactionId,
-          allowLocalhost: true
-        }
+    const config = {
+      url: `${BASE_URL}remote/ajax/transaction/transaction.cfc`,
+      method: 'GET',
+      params: {
+        method: 'getTxnData',
+        transactionId: transactionId,
+        allowLocalhost: true
       }
-      const data = await get(config)()
+    }
+    const data = await get(config)()
+    if (data) {
       const mappedData = {
         transactionId: data.TRANSACTIONID,
         address: {
@@ -31,8 +31,8 @@ export function getProperty (transactionId) {
       }
       const property = new Property(mappedData)
       dispatch({ type: GET_PROPERTY, payload: property })
-    } catch (e) {
-      console.log(e)
+    } else {
+      // TODO: handle no data returned
     }
   }
 }
