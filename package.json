@@ -8,11 +8,11 @@
   "main": "default.cfm",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel start:remote start:local:build:watch lint:watch",
+    "start": "npm-run-all --parallel start:local:build:watch lint:watch",
     "start:local:build": "babel-node tools/srcServer.js",
     "start:local:build:watch": "npm run start:local:build -- --watch",
     "start:remote": "npm-run-all --parallel start:remote:build start:remote:build:watch start:remote:open",
-    "start:remote:open": "open https://cfdev1.npe.clearcapital.net/sandbox_csn2/ccfile/root/sites/intranet/react/apps/react-starter-kit",
+    "start:remote:open": "open https://cfdev2.npe.clearcapital.net/sandbox_csn2/ccfile/root/sites/intranet/react/apps/react-starter-kit",
     "start:remote:build": "sh scripts/build.sh",
     "start:remote:build:watch": "sh scripts/watch.sh",
     "lint": "node_modules/.bin/esw webpack.config.* js/src tools",

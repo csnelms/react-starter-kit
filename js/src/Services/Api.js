@@ -1,26 +1,15 @@
-// import axios from 'axios'
+import axios from 'axios'
+import { TIMEOUT } from '../constants/global'
 
-export function get (url) {
+export function get (config) {
   return async () => {
-    // const response = await fetch('https://api.github.com/users/gaearon/gists')
-    const options = {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json, text/javascript, */*; q=0.01',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Content-Type': 'application/json'
-      },
-      timeout: 1200,
-      credentials: 'include',
-      mode: 'cors'
-    }
-    // TODO: dynamically create url params
-    const response = await fetch(url, options)
-    if (response.ok && response.status === 200) {
-      const json = await response.json()
-      return json
+    Object.assign(config, { method: 'GET', timeout: TIMEOUT, withCredentials: true })
+    const response = await axios.request(config)
+    if (response.status === 200) {
+      return response.data
     } else {
-      throw new Error('API call failure')
+      console.log(response)
+      throw new Error('API get request failure')
     }
   }
 }

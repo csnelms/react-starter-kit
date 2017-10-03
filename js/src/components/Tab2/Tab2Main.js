@@ -23,7 +23,7 @@ class Tab2Main extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
-  componentDidMount () {
+  componentWillMount () {
     // this.props.getProperty(this.state.transactionId)
   }
 
@@ -35,6 +35,7 @@ class Tab2Main extends React.Component {
   }
 
   getProperty (se) {
+    // console.log(se)
     this.props.getProperty(this.state.transactionId)
   }
 
@@ -42,9 +43,9 @@ class Tab2Main extends React.Component {
     console.log('render', this.props.property)
     return (
       <div>
-        <form onSubmit={this.getProperty}>
+        <form>
           <input type='text' name='transactionId' value={this.state.transactionId} onChange={this.handleInputChange} />
-          <button type='submit'>Load Queue</button>
+          <button type='button' onClick={this.getProperty}>Load Queue</button>
         </form>
       </div>
     )

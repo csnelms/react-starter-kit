@@ -5,9 +5,6 @@
 	request.framework.addCSS("#request.framework.getBaseUrl()#react/apps/react-starter-kit/app.css?v=#cachebuster#");
 </cfscript>
 
-<!---TODO: install axios locally--->
-<!---<script src="https://unpkg.com/axios/dist/axios.min.js"></script>--->
-
 <cfoutput>
 	<div id="app" class="bb_v1"></div>
 	<script src="#request.framework.getBaseUrl()#react/apps/react-starter-kit/app.min.js?v=#cachebuster#"></script>
