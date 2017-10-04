@@ -1,14 +1,14 @@
 {
-  "name": "myApp",
+  "name": "DevTools",
   "version": "0.1.0",
-  "description": "My app description",
+  "description": "Jasper Dev Tools",
   "private": true,
   "author": "Carey Nelms",
   "license": "PRIVATE",
   "main": "default.cfm",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel start:remote start:local:build:watch lint:watch",
+    "start": "npm-run-all --parallel start:local:build:watch lint:watch",
     "start:local:build": "babel-node tools/srcServer.js",
     "start:local:build:watch": "npm run start:local:build -- --watch",
     "start:remote": "npm-run-all --parallel start:remote:build start:remote:build:watch start:remote:open",

@@ -4,9 +4,15 @@ import { serialize } from '../util/utilities'
 
 export function request (config) {
   Object.assign(config, { timeout: TIMEOUT, withCredentials: true })
-  // serialize data into
-  if (config.data) {
-    config.transformRequest = [serialize]
+  switch (config.method) {
+    case 'GET':
+      //
+      break
+    case 'POST':
+      config.headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
+      // serialize config.data object into query string for body of request so it works with Content-Type 'application/x-www-form-urlencoded'
+      config.transformRequest = [serialize]
+      break
   }
   return async () => {
     try {
@@ -26,8 +32,3 @@ export function request (config) {
     }
   }
 }
-
-// export function transformRequest (data) {
-//   console.log('request', data)
-//   return data
-// }

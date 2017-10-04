@@ -65,12 +65,6 @@ export function bumpQueueTimes (transactionId, mins) {
         method: 'bumpQueueTimes',
         transactionId: transactionId,
         mins: mins
-      },
-      headers: {
-        // 'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
-        // 'Content-Type': 'application/x-www-form-urlencoded'
-        // 'Authorization': ''
       }
     }
     await request(config)()
