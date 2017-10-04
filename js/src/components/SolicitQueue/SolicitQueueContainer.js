@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getProperty, getQueuedOffices } from '../../actions/PropertyActions'
 import SolicitQueueGrid from './SolicitQueueGrid'
+import SolicitQueueHeader from './SolicitQueueHeader'
 
 const mapStateToProps = state => ({
   property: state.property,
@@ -15,7 +16,7 @@ const mapDispatchToProps = dispatch => (bindActionCreators({
   getQueuedOffices
 }, dispatch))
 
-class SolicitQueueMain extends React.Component {
+class SolicitQueueContainer extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -55,6 +56,7 @@ class SolicitQueueMain extends React.Component {
         <form>
           <input type='text' name='transactionId' value={this.state.transactionId} onChange={this.handleInputChange} />
           <button type='button' className='btn btn-primary' onClick={this.getQueuedOffices}>Load Queue</button>
+          <SolicitQueueHeader transactionId={this.state.transactionId} />
           {this.props.queue ? <SolicitQueueGrid queue={this.props.queue} /> : <p>{/* TODO: loading spinner */}</p>}
         </form>
       </div>
@@ -62,7 +64,7 @@ class SolicitQueueMain extends React.Component {
   }
 }
 
-SolicitQueueMain.propTypes = {
+SolicitQueueContainer.propTypes = {
   property: PropTypes.shape({
     transactionId: PropTypes.number,
     address: PropTypes.shape({
@@ -77,4 +79,4 @@ SolicitQueueMain.propTypes = {
   queue: PropTypes.array
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SolicitQueueMain)
+export default connect(mapStateToProps, mapDispatchToProps)(SolicitQueueContainer)

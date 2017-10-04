@@ -1,7 +1,7 @@
 import { GET_PROPERTY, GET_SOLICIT_QUEUE } from '../constants/actionTypes'
 import Property from '../model/Property'
 import { BASE_URL } from '../constants/global'
-import { get } from '../services/Api'
+import { request } from '../services/Api'
 
 export function getProperty (transactionId) {
   // you can return a simple object
@@ -14,11 +14,10 @@ export function getProperty (transactionId) {
       method: 'GET',
       params: {
         method: 'getTxnData',
-        transactionId: transactionId,
-        allowLocalhost: true
+        transactionId: transactionId
       }
     }
-    const data = await get(config)()
+    const data = await request(config)()
     if (data) {
       const mappedData = {
         transactionId: data.TRANSACTIONID,
@@ -38,25 +37,42 @@ export function getProperty (transactionId) {
 }
 
 export function getQueuedOffices (transactionId) {
-  // you can return a simple object
-  // return { type: GET_PROPERTY, payload: getMockProperty(transactionId) };
-
-  // or an async/await function
   return async dispatch => {
     const config = {
       url: `${BASE_URL}remote/ajax/solicitations/solicitationsQueue.cfc`,
       method: 'GET',
       params: {
         method: 'getQueuedOffices',
-        transactionId: transactionId,
-        allowLocalhost: true
+        transactionId: transactionId
       }
     }
-    const data = await get(config)()
+    const data = await request(config)()
     if (data) {
       dispatch({ type: GET_SOLICIT_QUEUE, payload: data })
     } else {
       // TODO: handle no data returned
     }
+  }
+}
+
+export function bumpQueueTimes (transactionId, mins) {
+  // console.log('PropertyActions.js bumpQueueTimes', arguments)
+  return async dispatch => {
+    const config = {
+      url: `${BASE_URL}remote/ajax/solicitations/solicitationsQueue.cfc`,
+      method: 'POST',
+      data: {
+        method: 'bumpQueueTimes',
+        transactionId: transactionId,
+        mins: mins
+      },
+      headers: {
+        // 'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+        // 'Content-Type': 'application/x-www-form-urlencoded'
+        // 'Authorization': ''
+      }
+    }
+    await request(config)()
   }
 }

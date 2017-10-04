@@ -8,7 +8,7 @@
   "main": "default.cfm",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel start:local:build:watch lint:watch",
+    "start": "npm-run-all --parallel start:remote start:local:build:watch lint:watch",
     "start:local:build": "babel-node tools/srcServer.js",
     "start:local:build:watch": "npm run start:local:build -- --watch",
     "start:remote": "npm-run-all --parallel start:remote:build start:remote:build:watch start:remote:open",
@@ -23,6 +23,8 @@
     "axios": "0.16.2",
     "babel-polyfill": "6.26.0",
     "browserify": "14.3.0",
+    "bootstrap": "3.3.6",
+    "jquery": "2.2.3",
     "react": "15.6.1",
     "react-dom": "15.6.1",
     "react-redux": "5.0.6",

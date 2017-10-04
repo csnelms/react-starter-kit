@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const SolicitQueueGrid = ({queue}) => {
-  console.log(queue)
+  // console.log(queue)
   return (
     <table className='table table-striped table-condensed'>
       <thead>

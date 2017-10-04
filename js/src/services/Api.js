@@ -1,11 +1,17 @@
 import axios from 'axios'
 import { BASE_URL, TIMEOUT } from '../constants/global'
+import { serialize } from '../util/utilities'
 
-export function get (config) {
-  Object.assign(config, { method: 'GET', timeout: TIMEOUT, withCredentials: true })
+export function request (config) {
+  Object.assign(config, { timeout: TIMEOUT, withCredentials: true })
+  // serialize data into
+  if (config.data) {
+    config.transformRequest = [serialize]
+  }
   return async () => {
     try {
       const response = await axios.request(config)
+      // console.log(response)
       if (response.status === 200) {
         return response.data
       } else if (response.status === 401) {
@@ -21,4 +27,7 @@ export function get (config) {
   }
 }
 
-// TODO: get a post working
+// export function transformRequest (data) {
+//   console.log('request', data)
+//   return data
+// }
