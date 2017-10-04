@@ -1,25 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import {getProperty} from '../../actions/PropertyActions'
+import { bindActionCreators } from 'redux'
+import { getProperty, getQueuedOffices } from '../../actions/PropertyActions'
+import SolicitationQueue from '../Solicitation/SolicitationQueue'
 
 const mapStateToProps = state => ({
-  property: state.property
+  property: state.property,
+  queue: state.property.queue
 })
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
-  getProperty
+  getProperty,
+  getQueuedOffices
 }, dispatch))
 
 class Tab2Main extends React.Component {
-  constructor (props, context) {
+  constructor (props) {
     super(props)
     this.state = {
-      transactionId: 22932882
+      transactionId: 22968605, // 22932882,
+      queue: []
     }
-
     this.getProperty = this.getProperty.bind(this)
+    this.getQueuedOffices = this.getQueuedOffices.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
@@ -35,17 +39,22 @@ class Tab2Main extends React.Component {
   }
 
   getProperty (se) {
-    // console.log(se)
     this.props.getProperty(this.state.transactionId)
   }
 
+  getQueuedOffices (se) {
+    this.props.getQueuedOffices(this.state.transactionId)
+    this.setState({queue: this.props.queue})
+  }
+
   render () {
-    console.log('render', this.props.property)
+    console.log('render', this.props)
     return (
       <div>
         <form>
           <input type='text' name='transactionId' value={this.state.transactionId} onChange={this.handleInputChange} />
-          <button type='button' onClick={this.getProperty}>Load Queue</button>
+          <button type='button' onClick={this.getQueuedOffices}>Load Queue</button>
+          {this.props.queue ? <SolicitationQueue queue={this.props.queue} /> : <p>{/* loading spinner */}</p>}
         </form>
       </div>
     )
@@ -62,7 +71,8 @@ Tab2Main.propTypes = {
       zip: PropTypes.string
     })
   }),
-  getProperty: PropTypes.func.isRequired
+  getProperty: PropTypes.func.isRequired,
+  getQueuedOffices: PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tab2Main)
