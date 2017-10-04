@@ -8,7 +8,7 @@ import {Provider} from 'react-redux'
 
 import Header from './components/Header.js'
 import Tabs from './components/Tabs.js'
-import Tab1Main from './components/Tab1/Tab1Main.js'
+import SolicitQueueContainer from './components/SolicitQueue/SolicitQueueContainer.js'
 import Tab2Main from './components/Tab2/Tab2Main.js'
 
 const history = {} // createBrowserHistory()
@@ -18,10 +18,10 @@ ReactDOM.render(
   <Provider store={store}>
     <Router basename='/' hashType='slash' history={history}>
       <div>
-        <Header label='My App' />
+        <Header label='Dev Tools' />
         <Route component={Tabs} />
-        <Route exact path='/' component={Tab1Main} />
-        <Route exact path='/tab1' component={Tab1Main} />
+        <Route exact path='/' component={SolicitQueueContainer} />
+        <Route exact path='/solicit-queue' component={SolicitQueueContainer} />
         <Route exact path='/tab2' component={Tab2Main} />
       </div>
     </Router>
