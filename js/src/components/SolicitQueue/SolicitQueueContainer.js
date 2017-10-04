@@ -28,7 +28,8 @@ class SolicitQueueMain extends React.Component {
   }
 
   componentWillMount () {
-    // this.props.getProperty(this.state.transactionId)
+    // this.getProperty()
+    // this.getQueuedOffices()
   }
 
   handleInputChange (se) {
@@ -38,11 +39,11 @@ class SolicitQueueMain extends React.Component {
     })
   }
 
-  getProperty (se) {
+  getProperty () {
     this.props.getProperty(this.state.transactionId)
   }
 
-  getQueuedOffices (se) {
+  getQueuedOffices () {
     this.props.getQueuedOffices(this.state.transactionId)
     this.setState({queue: this.props.queue})
   }
@@ -53,7 +54,7 @@ class SolicitQueueMain extends React.Component {
       <div>
         <form>
           <input type='text' name='transactionId' value={this.state.transactionId} onChange={this.handleInputChange} />
-          <button type='button' onClick={this.getQueuedOffices}>Load Queue</button>
+          <button type='button' className='btn btn-primary' onClick={this.getQueuedOffices}>Load Queue</button>
           {this.props.queue ? <SolicitQueueGrid queue={this.props.queue} /> : <p>{/* TODO: loading spinner */}</p>}
         </form>
       </div>
@@ -72,7 +73,8 @@ SolicitQueueMain.propTypes = {
     })
   }),
   getProperty: PropTypes.func.isRequired,
-  getQueuedOffices: PropTypes.func.isRequired
+  getQueuedOffices: PropTypes.func.isRequired,
+  queue: PropTypes.array
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SolicitQueueMain)
