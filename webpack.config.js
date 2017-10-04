@@ -1,11 +1,23 @@
-const path = require('path')
+import webpack from 'webpack'
+import path from 'path'
 
 module.exports = {
-  entry: ['babel-polyfill', path.resolve(__dirname, 'js/src/app')],
+  entry: [
+    'babel-polyfill',
+    'webpack-hot-middleware/client?reload=true',
+    path.resolve(__dirname, 'js/src/app')
+  ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'js/src')
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ],
   resolve: {
     alias: {
       src: path.resolve(__dirname, 'js/src/')
