@@ -1,3 +1,7 @@
+#app {
+  /*width: 800px; */
+}
+
 #app h1,
 #app h2,
 #app h3,
@@ -19,4 +23,9 @@
 
 #app input {
     margin-bottom: 0px;
+}
+
+#app .loading-container {
+  padding: 100px;
+  text-align: center;
 }

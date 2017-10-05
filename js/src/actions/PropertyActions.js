@@ -56,7 +56,6 @@ export function getQueuedOffices (transactionId) {
 }
 
 export function bumpQueueTimes (transactionId, mins) {
-  // console.log('PropertyActions.js bumpQueueTimes', arguments)
   return async dispatch => {
     const config = {
       url: `${BASE_URL}remote/ajax/solicitations/solicitationsQueue.cfc`,

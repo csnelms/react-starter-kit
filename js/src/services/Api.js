@@ -4,15 +4,10 @@ import { serialize } from '../util/utilities'
 
 export function request (config) {
   Object.assign(config, { timeout: TIMEOUT, withCredentials: true })
-  switch (config.method) {
-    case 'GET':
-      //
-      break
-    case 'POST':
-      config.headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
-      // serialize config.data object into query string for body of request so it works with Content-Type 'application/x-www-form-urlencoded'
-      config.transformRequest = [serialize]
-      break
+  if (config.method === 'POST') {
+    config.headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
+    // serialize config.data object into query string for body of request so it works with Content-Type 'application/x-www-form-urlencoded'
+    config.transformRequest = [serialize]
   }
   return async () => {
     try {

@@ -27,7 +27,8 @@ module.exports = {
     rules: [
       { test: /\.js$/, use: ['babel-loader'] },
       { test: /\.jsx$/, use: ['babel-loader'] },
-      { test: /\.txt$/, use: 'raw-loader' }
+      { test: /\.txt$/, use: ['raw-loader'] },
+      { test: /\.css$/, use: ['css-loader'] }
     ]
   }
 }
