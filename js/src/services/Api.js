@@ -23,7 +23,7 @@ export function request (config) {
         // throw new Error('API get request failure')
       }
     } catch (e) {
-      console.log('Unknown error in API', e)
+      console.log(`Unknown error in API, perhaps you are not logged into ${BASE_URL}`, e)
     }
   }
 }
